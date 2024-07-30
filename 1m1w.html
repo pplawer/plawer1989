@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>공구상품 수량</title>
+    <meta charset="utf-8">
+
+
+
+    <style>
+        /* 헤드 부분의 스타일 정의 */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        .header {
+            background-color: #f0f0f0;
+            padding: 10px;
+            text-align: center;
+            border-bottom: 1px solid #ccc;
+        }
+
+        .header a {
+        text-decoration: none; /* 헤더의 링크 밑줄 제거 */
+        color: rgb(0, 0, 0); /* 링크 색상 조정 */
+        }
+
+        .main-container {
+            display: flex;
+            height: calc(100vh - 60px); /* 헤더 높이 고려하여 전체 화면 높이 설정 */
+        }
+
+        .sidebar {
+            width: 150px; /* 목차 영역의 너비 */
+            background-color: #f9f9f9;
+            padding: 15px;
+            border-right: 1px solid #ccc;
+            box-sizing: border-box;
+        }
+
+        .content {
+            flex: 1;
+            padding: 15px;
+            box-sizing: border-box;
+        }
+
+        .toggle-content {
+            display: block; /* 기본적으로 숨기기 */
+            margin-left: -25px; /* 세부 목차 들여쓰기 */
+        }
+
+        .toggle-button {
+            cursor: pointer;
+            color: rgb(0, 0, 0);
+            text-decoration: none;
+        }
+
+        .sidebar a {
+            text-decoration: none; /* 사이드바의 링크 밑줄 제거 */
+            color: rgb(0, 0, 0); /* 링크 색상 조정 */
+        }
+
+
+
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            table-layout: auto; /* !!! 자동 열 너비 조정 */
+        }
+        th, td {
+            border: 1px solid black;
+            padding: 8px;
+            text-align: center;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        input[type="text"] {
+            width: 100%;
+            box-sizing: border-box;
+            padding: 5px;
+            border: none;
+            text-align: right;
+        }
+        .sum-row th {
+            background-color: #d9edf7;
+        }
+
+
+        tfoot tr.sum-row {
+            background-color: #d9edf7; /* 합계 행의 배경색 */
+            color: #333; /* 글자 색상 */
+        }
+
+
+        .footer-row th {
+            background-color: #f9f9f9;
+            text-align: center;
+        }
+
+        table a {
+        color: rgb(0, 0, 0); /* 링크 색상 조정 */
+        text-decoration: none; /* 링크의 밑줄 제거 */
+        }
+
+        th:nth-child(1), td:nth-child(1) {
+        width: 70px; /* 원하는 너비 값으로 설정 */
+        min-width: 70px; /* 최소 너비 설정 (선택 사항) */
+        }
+
+    </style>
+    
+
+    
+</head>
+
+
+
+
+
+
+<body>
+    <div class="header">
+        <h1><a href="index.html">공구상품 수량</a></h1>
+    </div>
+
+    
+
+
+
+    <div class="main-container">
+        <div class="sidebar">
+            <ul>
+                <li>
+                    <span class="toggle-button" onclick="toggleContent('section2')">1월</span>
+                    <ul id="section2" class="toggle-content">
+                        <li><a href="1m1w.html">1주차</a></li>
+                        <li><a href="1m2w.html">2주차</a></li>
+                        <li><a href="1m3w.html">3주차</a></li>
+                        <li><a href="1m4w.html">4주차</a></li>
+                        <li><a href="1m5w.html">5주차</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+
+
+
+
+
+
+        <div class="content">
+            
+
+
+
+            <h3>1주차 공구상품</h3>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>월요일</th>
+                        <th>상품1</th>
+                        <th>상품2</th>
+                        <th>상품3</th>
+                        <th>상품4</th>
+                        <th>상품5</th>
+                        <th>상품6</th>
+                        <th>상품7</th>
+                        <th>상품8</th>
+                        <th>상품9</th>
+                        <th>상품10</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th>신용</th>
+                        <td><input type="text" name="cell1_1"></td>
+                        <td><input type="text" name="cell1_2"></td>
+                        <td><input type="text" name="cell1_3"></td>
+                        <td><input type="text" name="cell1_4"></td>
+                        <td><input type="text" name="cell1_5"></td>
+                        <td><input type="text" name="cell1_6"></td>
+                        <td><input type="text" name="cell1_7"></td>
+                        <td><input type="text" name="cell1_8"></td>
+                        <td><input type="text" name="cell1_9"></td>
+                        <td><input type="text" name="cell1_10"></td>
+                    </tr>
+                    <tr>
+                        <th>용산</th>
+                        <td><input type="text" name="cell2_1"></td>
+                        <td><input type="text" name="cell2_2"></td>
+                        <td><input type="text" name="cell2_3"></td>
+                        <td><input type="text" name="cell2_4"></td>
+                        <td><input type="text" name="cell2_5"></td>
+                        <td><input type="text" name="cell2_6"></td>
+                        <td><input type="text" name="cell2_7"></td>
+                        <td><input type="text" name="cell2_8"></td>
+                        <td><input type="text" name="cell2_9"></td>
+                        <td><input type="text" name="cell2_10"></td>
+                    </tr>
+                    <tr>
+                        <th>봉선</th>
+                        <td><input type="text" name="cell3_1"></td>
+                        <td><input type="text" name="cell3_2"></td>
+                        <td><input type="text" name="cell3_3"></td>
+                        <td><input type="text" name="cell3_4"></td>
+                        <td><input type="text" name="cell3_5"></td>
+                        <td><input type="text" name="cell3_6"></td>
+                        <td><input type="text" name="cell3_7"></td>
+                        <td><input type="text" name="cell3_8"></td>
+                        <td><input type="text" name="cell3_9"></td>
+                        <td><input type="text" name="cell3_10"></td>
+                    </tr>
+                    <tr>
+                        <th>달콤</th>
+                        <td><input type="text" name="cell4_1"></td>
+                        <td><input type="text" name="cell4_2"></td>
+                        <td><input type="text" name="cell4_3"></td>
+                        <td><input type="text" name="cell4_4"></td>
+                        <td><input type="text" name="cell4_5"></td>
+                        <td><input type="text" name="cell4_6"></td>
+                        <td><input type="text" name="cell4_7"></td>
+                        <td><input type="text" name="cell4_8"></td>
+                        <td><input type="text" name="cell4_9"></td>
+                        <td><input type="text" name="cell4_10"></td>
+                    </tr>
+                    <tr>
+                        <th>오치</th>
+                        <td><input type="text" name="cell5_1"></td>
+                        <td><input type="text" name="cell5_2"></td>
+                        <td><input type="text" name="cell5_3"></td>
+                        <td><input type="text" name="cell5_4"></td>
+                        <td><input type="text" name="cell5_5"></td>
+                        <td><input type="text" name="cell5_6"></td>
+                        <td><input type="text" name="cell5_7"></td>
+                        <td><input type="text" name="cell5_8"></td>
+                        <td><input type="text" name="cell5_9"></td>
+                        <td><input type="text" name="cell5_10"></td>
+                    </tr>
+                    <tr>
+                        <th>쌍촌</th>
+                        <td><input type="text" name="cell6_1"></td>
+                        <td><input type="text" name="cell6_2"></td>
+                        <td><input type="text" name="cell6_3"></td>
+                        <td><input type="text" name="cell6_4"></td>
+                        <td><input type="text" name="cell6_5"></td>
+                        <td><input type="text" name="cell6_6"></td>
+                        <td><input type="text" name="cell6_7"></td>
+                        <td><input type="text" name="cell6_8"></td>
+                        <td><input type="text" name="cell6_9"></td>
+                        <td><input type="text" name="cell6_10"></td>
+                    </tr>
+                    <tr>
+                        <th>계림</th>
+                        <td><input type="text" name="cell7_1"></td>
+                        <td><input type="text" name="cell7_2"></td>
+                        <td><input type="text" name="cell7_3"></td>
+                        <td><input type="text" name="cell7_4"></td>
+                        <td><input type="text" name="cell7_5"></td>
+                        <td><input type="text" name="cell7_6"></td>
+                        <td><input type="text" name="cell7_7"></td>
+                        <td><input type="text" name="cell7_8"></td>
+                        <td><input type="text" name="cell7_9"></td>
+                        <td><input type="text" name="cell7_10"></td>
+                    </tr>
+                    <tr>
+                        <th>친절</th>
+                        <td><input type="text" name="cell8_1"></td>
+                        <td><input type="text" name="cell8_2"></td>
+                        <td><input type="text" name="cell8_3"></td>
+                        <td><input type="text" name="cell8_4"></td>
+                        <td><input type="text" name="cell8_5"></td>
+                        <td><input type="text" name="cell8_6"></td>
+                        <td><input type="text" name="cell8_7"></td>
+                        <td><input type="text" name="cell8_8"></td>
+                        <td><input type="text" name="cell8_9"></td>
+                        <td><input type="text" name="cell8_10"></td>
+                    </tr>
+                    <tr>
+                        <th>떡창고</th>
+                        <td><input type="text" name="cell9_1"></td>
+                        <td><input type="text" name="cell9_2"></td>
+                        <td><input type="text" name="cell9_3"></td>
+                        <td><input type="text" name="cell9_4"></td>
+                        <td><input type="text" name="cell9_5"></td>
+                        <td><input type="text" name="cell9_6"></td>
+                        <td><input type="text" name="cell9_7"></td>
+                        <td><input type="text" name="cell9_8"></td>
+                        <td><input type="text" name="cell9_9"></td>
+                        <td><input type="text" name="cell9_10"></td>
+                    </tr>
+                    <tr>
+                        <th>자연숲</th>
+                        <td><input type="text" name="cell10_1"></td>
+                        <td><input type="text" name="cell10_2"></td>
+                        <td><input type="text" name="cell10_3"></td>
+                        <td><input type="text" name="cell10_4"></td>
+                        <td><input type="text" name="cell10_5"></td>
+                        <td><input type="text" name="cell10_6"></td>
+                        <td><input type="text" name="cell10_7"></td>
+                        <td><input type="text" name="cell10_8"></td>
+                        <td><input type="text" name="cell10_9"></td>
+                        <td><input type="text" name="cell10_10"></td>
+                    </tr>
+                </tbody>
+        
+                <tfoot>
+                    <tr class="sum-row">
+                        <th>합계</th>
+                        <td id="sum1">0</td>
+                        <td id="sum2">0</td>
+                        <td id="sum3">0</td>
+                        <td id="sum4">0</td>
+                        <td id="sum5">0</td>
+                        <td id="sum6">0</td>
+                        <td id="sum7">0</td>
+                        <td id="sum8">0</td>
+                        <td id="sum9">0</td>
+                        <td id="sum10">0</td>
+                    </tr>
+        
+        
+                    <tr class="footer-row">
+                        <th>마감수량</th>
+                        <td>
+                            <input type="text" name="end1">
+                            <button data-index="1">입력</button>
+                        </td>
+                        <td>
+                            <input type="text" name="end2">
+                            <button data-index="2">입력</button>
+                        </td>
+                        <td>
+                            <input type="text" name="end3">
+                            <button data-index="3">입력</button>
+                        </td>
+                        <td>
+                            <input type="text" name="end4">
+                            <button data-index="4">입력</button>
+                        </td>
+                        <td>
+                            <input type="text" name="end5">
+                            <button data-index="5">입력</button>
+                        </td>
+                        <td>
+                            <input type="text" name="end6">
+                            <button data-index="6">입력</button>
+                        </td>
+                        <td>
+                            <input type="text" name="end7">
+                            <button data-index="7">입력</button>
+                        </td>
+                        <td>
+                            <input type="text" name="end8">
+                            <button data-index="8">입력</button>
+                        </td>
+                        <td>
+                            <input type="text" name="end9">
+                            <button data-index="9">입력</button>
+                        </td>
+                        <td>
+                            <input type="text" name="end10">
+                            <button data-index="10">입력</button>
+                        </td>
+                    </tr>
+                </tfoot>
+            </table>
+
+
+
+
+
+            
+            
+        </div>
+    </div>
+
+
+
+
+
+
+    <script>
+
+        function toggleContent(sectionId) {
+            const content = document.getElementById(sectionId);
+            if (content.style.display === 'none' || content.style.display === '') {
+                content.style.display = 'block';
+            } else {
+                content.style.display = 'none';
+            }
+        }
+
+    
+
+
+
+
+        let isClosed = Array.from({ length: 10 }, () => false);
+    
+        // 합계를 계산하는 함수
+        function updateSums() {
+            const sums = Array.from({ length: 10 }, () => 0);
+            const inputs = document.querySelectorAll('input[type="text"][name^="cell"]');
+    
+            inputs.forEach(input => {
+                const value = parseFloat(input.value) || 0;
+                const cellIndex = input.parentElement.cellIndex - 1; // 열 인덱스
+                if (cellIndex >= 0 && input.closest('tbody')) {
+                    sums[cellIndex] += value;
+                }
+            });
+    
+            sums.forEach((sum, index) => {
+                const roundedSum = Math.round(sum);
+                document.getElementById(`sum${index + 1}`).textContent = roundedSum; // !!! 수정된 부분: backtick 추가
+            });
+        }
+    
+        // 입력 값을 검증하는 함수
+        function validateInput(event) {
+            const input = event.target;
+            const cellIndex = input.parentElement.cellIndex - 1;
+    
+            // 마감수량 값을 가져오기
+            const endQuantity = parseFloat(document.querySelector(`input[name="end${cellIndex + 1}"]`).value) || Infinity; // !!! 수정된 부분: backtick 추가
+    
+            // 현재 열의 합계를 계산
+            let currentSum = 0;
+            document.querySelectorAll(`input[name^="cell"][name*="${cellIndex + 1}"]`).forEach(cellInput => { // !!! 수정된 부분: backtick 추가
+                if (cellInput !== input) {
+                    currentSum += parseFloat(cellInput.value) || 0;
+                }
+            });
+    
+            const inputValue = parseFloat(input.value) || 0;
+    
+            // 마감 여부를 확인
+            if (currentSum + inputValue > endQuantity) {
+                const plawer = endQuantity - currentSum;
+    
+                if (plawer <= 0) {
+                    isClosed[cellIndex] = true;
+                    alert("마감되었습니다.");
+                    input.value = "";
+                } else {
+                    alert(`${plawer}개만 주문 가능하세요.`); // !!! 수정된 부분: backtick 추가
+                    input.value = "";
+                }
+            } else {
+                isClosed[cellIndex] = false;
+            }
+    
+            updateSums();
+        }
+    
+        // 마감수량 버튼을 클릭했을 때의 함수
+        function setEndQuantity(event) {
+            const button = event.target;
+            const cellIndex = button.parentElement.cellIndex - 1;
+    
+            const endInput = document.querySelector(`input[name="end${cellIndex + 1}"]`); // !!! 수정된 부분: backtick 추가
+    
+            // 현재 열의 합계 계산
+            let currentSum = 0;
+            document.querySelectorAll(`input[name^="cell"][name*="${cellIndex + 1}"]`).forEach(cellInput => { // !!! 수정된 부분: backtick 추가
+                currentSum += parseFloat(cellInput.value) || 0;
+            });
+    
+            const endQuantity = parseFloat(endInput.value) || 0;
+    
+            if (currentSum > endQuantity) {
+                alert("합계가 마감수량을 초과했습니다. 다시 입력해주세요.");
+                endInput.value = "";
+                return;
+            }
+    
+            validateInput({ target: document.querySelector(`input[name^="cell"][name*="${cellIndex + 1}"]`) }); // !!! 수정된 부분: backtick 추가
+        }
+    
+        // 이벤트 리스너를 모든 셀 입력 필드에 추가
+        function attachEventListeners() {
+            document.querySelectorAll('input[type="text"][name^="cell"]').forEach(input => {
+                input.removeEventListener('input', validateInput);
+                input.addEventListener('input', validateInput);
+            });
+        }
+    
+        // 마감수량 입력 필드의 이벤트 리스너 추가
+        function attachEndQuantityListeners() {
+            document.querySelectorAll('input[name^="end"]').forEach(endInput => {
+                endInput.addEventListener('input', updateSums);
+            });
+    
+            document.querySelectorAll('button[name^="setEnd"]').forEach(button => {
+                button.addEventListener('click', setEndQuantity); // !!! 수정된 부분: setEndQuantity 추가
+            });
+        }
+    
+        // 초기 설정
+        function initialize() {
+            attachEventListeners();
+            attachEndQuantityListeners();
+            updateSums();
+        }
+    
+        // 페이지 로드 시 초기 설정
+        window.addEventListener('DOMContentLoaded', initialize);
+
+
+
+
+
+
+
+    </script>
+
+
+
+</body>
+
+</html>
